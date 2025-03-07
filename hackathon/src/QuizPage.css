@@ -1,91 +1,195 @@
-.quiz-container {
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f6f8fa; /* Lightest color for the background */
+    color: #01002a; /* Darkest color for text */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Quiz Container */
+  .quiz-container {
+    padding: 40px;
     text-align: center;
-    margin: 20px;
+    background-color: #eaffff; /* Light blue for the container background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
   }
   
   h2 {
     font-size: 24px;
-    font-weight: bold;
     margin-bottom: 20px;
+    color: #01002a; /* Darkest color for headings */
   }
   
   p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .options {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    font-size: 18px;
     margin-bottom: 30px;
+    color: #01002a; /* Darkest color for text */
   }
   
-  button {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 2px solid black;
+  /* Options Buttons */
+  .options button {
+    background-color: #a2b6cb; /* Medium blue for buttons */
+    color: #01002a; /* Darkest color for button text */
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
     cursor: pointer;
-    background-color: white;
     font-size: 16px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
-  button:focus {
-    outline: none;
+  .options button.selected {
+    background-color: #d7e8ef; /* Light blue for selected buttons */
+    transform: scale(1.05);
   }
   
-  button.selected {
-    background-color: #f3f4f6;
+  .options button:hover {
+    background-color: #d7e8ef; /* Light blue for hover state */
+    transform: scale(1.05);
   }
   
-  button:hover:not([disabled]) {
-    background-color: #f3f4f6;
+  /* Navigation Buttons */
+  .navigation button {
+    background-color: #a2b6cb; /* Medium blue for navigation buttons */
+    color: #01002a; /* Darkest color for button text */
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
   
-  button[disabled] {
-    background-color: #e5e7eb;
+  .navigation button:hover {
+    background-color: #d7e8ef; /* Light blue for hover state */
+  }
+  
+  .navigation button:disabled {
+    background-color: #eaffff; /* Light blue for disabled buttons */
     cursor: not-allowed;
+    color: #a2b6cb; /* Medium blue for disabled text */
   }
   
-  .navigation {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
+  /* Learning Style Boxes */
   .learning-style {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
   }
   
   .style-box {
     padding: 20px;
-    border: 2px solid black;
+    margin: 10px;
+    border: 2px solid #a2b6cb; /* Medium blue for borders */
     border-radius: 8px;
-    text-align: center;
-    width: 200px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 300px;
+    background-color: #eaffff; /* Light blue for background */
+    transition: all 0.3s ease;
   }
   
   .style-box.highlight {
-    background-color: #f3f4f6;
-    border-color: #000;
-    font-weight: bold;
+    border-color: #01002a; /* Darkest color for highlighted borders */
+    background-color: #01002a; /* Darkest color for highlighted background */
+    color: #eaffff; /* Light blue for highlighted text */
   }
   
   .style-box h3 {
-    font-size: 18px;
+    margin: 0;
+    font-size: 20px;
+    color: inherit;
   }
   
   .style-box p {
     font-size: 14px;
+    color: inherit;
   }
   
-  button:active {
-    transform: scale(0.98);
+  /* Start Learning Button */
+  .start-learning-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #01002a; /* Darkest color for the button */
+    color: #eaffff; /* Light blue for button text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
   
+  .start-learning-button:hover {
+    background-color: #a2b6cb; /* Medium blue for hover state */
+    color: #01002a; /* Darkest color for hover text */
+  }
+  
+  /* Login/Signup Form */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #eaffff; /* Light blue for form background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form input {
+    padding: 10px;
+    border: 1px solid #a2b6cb; /* Medium blue for input borders */
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f6f8fa; /* Lightest color for input background */
+    color: #01002a; /* Darkest color for input text */
+  }
+  
+  .login-form button {
+    padding: 12px;
+    background-color: #01002a; /* Darkest color for button */
+    color: #eaffff; /* Light blue for button text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #a2b6cb; /* Medium blue for hover state */
+    color: #01002a; /* Darkest color for hover text */
+  }
+  
+  /* Learning Style Selection Boxes */
+  .learning-style-box {
+    padding: 20px;
+    border: 2px solid #a2b6cb; /* Medium blue for borders */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #eaffff; /* Light blue for background */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .learning-style-box.selected {
+    border-color: #01002a; /* Darkest color for selected borders */
+    background-color: #01002a; /* Darkest color for selected background */
+    color: #eaffff; /* Light blue for selected text */
+  }
+  
+  .learning-style-box h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: inherit;
+  }
+  
+  .learning-style-box p {
+    font-size: 14px;
+    color: inherit;
+  }
