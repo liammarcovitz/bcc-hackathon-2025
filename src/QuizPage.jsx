@@ -60,12 +60,12 @@ export default function QuizPage({ submit }) {
   };
 
   const getLearningStyle = () => {
-    const counts = { Visual: 0, Auditory: 0, Game: 0 }; // Updated to include "Game"
+    const counts = { Visual: 0, Auditory: 0, Game: 0 };
     answers.forEach((answer) => {
-      counts[answer]++; // Count the occurrences of each type
+      counts[answer]++;
     });
 
-    return Object.keys(counts).reduce((a, b) => (counts[a] > counts[b] ? a : b)); // Return the one with the most occurrences
+    return Object.keys(counts).reduce((a, b) => (counts[a] > counts[b] ? a : b));
   };
 
   if (quizCompleted) {

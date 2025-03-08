@@ -1,8 +1,8 @@
 import { useState } from "react";
 import QuizPage from "./QuizPage";
 
-const GEMINI_API_KEY = "AIzaSyBlp5Mpbpwcylfs9fLYpY4gFCLf4OGkFrM";
-const OPENAI_API_KEY = "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";
+const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+const OPENAI_API_KEY = process.env.REACT_APP_OPEN_AI_API_KEY;
 
 export default function LearningStyleApp() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -12,11 +12,11 @@ export default function LearningStyleApp() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [learningStyleResult, setLearningStyleResult] = useState(null);
   const [selectedLearningStyle, setSelectedLearningStyle] = useState(null);
-  const [topic, setTopic] = useState(""); // State for the topic input
-  const [generatedText, setGeneratedText] = useState(""); // State for the AI-generated text
-  const [audioUrl, setAudioUrl] = useState(null); // State for the generated audio URL
-  const [imageUrl, setImageUrl] = useState(null); // State for the generated image URL
-  const [isLoading, setIsLoading] = useState(false); // State for loading indicator
+  const [topic, setTopic] = useState("");
+  const [generatedText, setGeneratedText] = useState("");
+  const [audioUrl, setAudioUrl] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -25,7 +25,7 @@ export default function LearningStyleApp() {
   const handleQuizSubmit = async (answers) => {
     const prompt = `Based on the following answers, determine the user's learning style:\n${answers} \nOnly return either "Auditory", "Game", or "Visual" nothing else and only one of them. Return what is the most (dont return any special characters like a new line like \\n).`;
     
-    console.log("Sending prompt to API:", prompt);  // Added log before sending request
+    console.log("Sending prompt to API:", prompt);
   
     try {
       const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY, {
@@ -47,11 +47,11 @@ export default function LearningStyleApp() {
       });
   
       const data = await response?.json();
-      console.log("API Response:", data);  // Log the full response for debugging
+      console.log("API Response:", data);
   
       if (data?.candidates?.[0]?.content?.parts?.[0].text) {
-        const learningStyle = data?.candidates?.[0]?.content?.parts?.[0].text; // Fixed path
-        console.log("Learning Style: ", learningStyle);  // Log the learning style
+        const learningStyle = data?.candidates?.[0]?.content?.parts?.[0].text;
+        console.log("Learning Style: ", learningStyle);
     
         setLearningStyleResult(learningStyle.replace('\n', ''));
       } else {
@@ -63,11 +63,11 @@ export default function LearningStyleApp() {
   };
 
   const handleLearningStyleSelect = (type) => {
-    setSelectedLearningStyle(type); // Set the selected learning style
+    setSelectedLearningStyle(type);
   };
 
   const handleTopicChange = (e) => {
-    setTopic(e.target.value); // Update the topic input
+    setTopic(e.target.value);
   };
 
   const generateContent = async () => {
@@ -76,10 +76,9 @@ export default function LearningStyleApp() {
       return;
     }
 
-    setIsLoading(true); // Show loading indicator
+    setIsLoading(true);
 
     try {
-      // Step 1: Generate a paragraph about the topic using OpenAI's GPT API
       const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -103,9 +102,8 @@ export default function LearningStyleApp() {
       }
 
       const generatedParagraph = gptData.choices[0].message.content;
-      setGeneratedText(generatedParagraph); // Save the generated text
+      setGeneratedText(generatedParagraph);
 
-      // Step 2: Generate an image using OpenAI's DALL-E API (for Visual learners)
       if (selectedLearningStyle === "Visual") {
         const dalleResponse = await fetch("https://api.openai.com/v1/images/generations", {
           method: "POST",
@@ -116,8 +114,8 @@ export default function LearningStyleApp() {
           body: JSON.stringify({
             model: "dall-e-3",
             prompt: `A realistic image of: ${topic}`,
-            n: 1, // Generate 1 image
-            size: "1024x1024", // Image size
+            n: 1,
+            size: "1024x1024",
           }),
         });
 
@@ -127,10 +125,9 @@ export default function LearningStyleApp() {
         }
 
         const imageUrl = dalleData.data[0].url;
-        setImageUrl(imageUrl); // Save the generated image URL
+        setImageUrl(imageUrl);
       }
 
-      // Step 3: Generate a voice message using OpenAI's TTS API (for Auditory learners)
       if (selectedLearningStyle === "Auditory") {
         const ttsResponse = await fetch("https://api.openai.com/v1/audio/speech", {
           method: "POST",
@@ -139,9 +136,9 @@ export default function LearningStyleApp() {
             "Authorization": `Bearer ${OPENAI_API_KEY}`,
           },
           body: JSON.stringify({
-            model: "tts-1", // Use the TTS model
-            input: generatedParagraph, // Use the generated text as input
-            voice: "alloy", // Choose a voice (options: alloy, echo, fable, onyx, nova, shimmer)
+            model: "tts-1",
+            input: generatedParagraph,
+            voice: "alloy",
           }),
         });
 
@@ -149,16 +146,15 @@ export default function LearningStyleApp() {
           throw new Error("Failed to generate audio.");
         }
 
-        // Convert the response to a Blob and create a URL for the audio
         const blob = await ttsResponse.blob();
         const audioUrl = URL.createObjectURL(blob);
-        setAudioUrl(audioUrl); // Set the audio URL for playback
+        setAudioUrl(audioUrl);
       }
     } catch (error) {
       console.error("Error generating content:", error);
       alert("Failed to generate content. Please try again.");
     } finally {
-      setIsLoading(false); // Hide loading indicator
+      setIsLoading(false);
     }
   };
 
@@ -268,7 +264,6 @@ export default function LearningStyleApp() {
             ))}
           </div>
 
-          {/* Topic Input and Generate Button for Visual and Auditory Learners */}
           {(selectedLearningStyle === "Auditory" || selectedLearningStyle === "Visual") && (
             <div style={{ marginTop: "20px" }}>
               <input
@@ -298,7 +293,6 @@ export default function LearningStyleApp() {
             </div>
           )}
 
-          {/* Display Generated Text */}
           {generatedText && (
             <div style={{ marginTop: "20px", maxWidth: "600px", textAlign: "left" }}>
               <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#01002a" }}>Generated Text:</h3>
@@ -306,7 +300,6 @@ export default function LearningStyleApp() {
             </div>
           )}
 
-          {/* Display Generated Image (for Visual learners) */}
           {selectedLearningStyle === "Visual" && imageUrl && (
             <div style={{ marginTop: "20px" }}>
               <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#01002a" }}>Generated Image:</h3>
@@ -314,7 +307,6 @@ export default function LearningStyleApp() {
             </div>
           )}
 
-          {/* Audio Player for Generated Voice Message (for Auditory learners) */}
           {selectedLearningStyle === "Auditory" && audioUrl && (
             <div style={{ marginTop: "20px" }}>
               <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#01002a" }}>Listen to the Voice Message:</h3>

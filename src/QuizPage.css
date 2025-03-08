@@ -1,17 +1,15 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f6f8fa; /* Lightest color for the background */
-    color: #01002a; /* Darkest color for text */
+    background-color: #f6f8fa;
+    color: #01002a;
     margin: 0;
     padding: 0;
   }
   
-  /* Quiz Container */
   .quiz-container {
     padding: 40px;
     text-align: center;
-    background-color: #eaffff; /* Light blue for the container background */
+    background-color: #eaffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 600px;
@@ -21,19 +19,18 @@ body {
   h2 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #01002a; /* Darkest color for headings */
+    color: #01002a;
   }
   
   p {
     font-size: 18px;
     margin-bottom: 30px;
-    color: #01002a; /* Darkest color for text */
+    color: #01002a;
   }
   
-  /* Options Buttons */
   .options button {
-    background-color: #a2b6cb; /* Medium blue for buttons */
-    color: #01002a; /* Darkest color for button text */
+    background-color: #a2b6cb;
+    color: #01002a;
     border: none;
     padding: 12px 24px;
     margin: 10px;
@@ -44,19 +41,18 @@ body {
   }
   
   .options button.selected {
-    background-color: #d7e8ef; /* Light blue for selected buttons */
+    background-color: #d7e8ef;
     transform: scale(1.05);
   }
   
   .options button:hover {
-    background-color: #d7e8ef; /* Light blue for hover state */
+    background-color: #d7e8ef;
     transform: scale(1.05);
   }
   
-  /* Navigation Buttons */
   .navigation button {
-    background-color: #a2b6cb; /* Medium blue for navigation buttons */
-    color: #01002a; /* Darkest color for button text */
+    background-color: #a2b6cb;
+    color: #01002a;
     padding: 12px 24px;
     border-radius: 8px;
     margin: 10px;
@@ -66,16 +62,15 @@ body {
   }
   
   .navigation button:hover {
-    background-color: #d7e8ef; /* Light blue for hover state */
+    background-color: #d7e8ef;
   }
   
   .navigation button:disabled {
-    background-color: #eaffff; /* Light blue for disabled buttons */
+    background-color: #eaffff;
     cursor: not-allowed;
-    color: #a2b6cb; /* Medium blue for disabled text */
+    color: #a2b6cb;
   }
   
-  /* Learning Style Boxes */
   .learning-style {
     display: flex;
     flex-direction: column;
@@ -86,17 +81,17 @@ body {
   .style-box {
     padding: 20px;
     margin: 10px;
-    border: 2px solid #a2b6cb; /* Medium blue for borders */
+    border: 2px solid #a2b6cb;
     border-radius: 8px;
     width: 300px;
-    background-color: #eaffff; /* Light blue for background */
+    background-color: #eaffff;
     transition: all 0.3s ease;
   }
   
   .style-box.highlight {
-    border-color: #01002a; /* Darkest color for highlighted borders */
-    background-color: #01002a; /* Darkest color for highlighted background */
-    color: #eaffff; /* Light blue for highlighted text */
+    border-color: #01002a;
+    background-color: #01002a;
+    color: #eaffff;
   }
   
   .style-box h3 {
@@ -110,12 +105,11 @@ body {
     color: inherit;
   }
   
-  /* Start Learning Button */
   .start-learning-button {
     margin-top: 20px;
     padding: 12px 24px;
-    background-color: #01002a; /* Darkest color for the button */
-    color: #eaffff; /* Light blue for button text */
+    background-color: #01002a;
+    color: #eaffff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -124,16 +118,15 @@ body {
   }
   
   .start-learning-button:hover {
-    background-color: #a2b6cb; /* Medium blue for hover state */
-    color: #01002a; /* Darkest color for hover text */
+    background-color: #a2b6cb;
+    color: #01002a;
   }
   
-  /* Login/Signup Form */
   .login-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #eaffff; /* Light blue for form background */
+    background-color: #eaffff;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
@@ -141,17 +134,17 @@ body {
   
   .login-form input {
     padding: 10px;
-    border: 1px solid #a2b6cb; /* Medium blue for input borders */
+    border: 1px solid #a2b6cb;
     border-radius: 8px;
     font-size: 16px;
-    background-color: #f6f8fa; /* Lightest color for input background */
-    color: #01002a; /* Darkest color for input text */
+    background-color: #f6f8fa;
+    color: #01002a;
   }
   
   .login-form button {
     padding: 12px;
-    background-color: #01002a; /* Darkest color for button */
-    color: #eaffff; /* Light blue for button text */
+    background-color: #01002a;
+    color: #eaffff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -160,17 +153,16 @@ body {
   }
   
   .login-form button:hover {
-    background-color: #a2b6cb; /* Medium blue for hover state */
-    color: #01002a; /* Darkest color for hover text */
+    background-color: #a2b6cb;
+    color: #01002a;
   }
   
-  /* Learning Style Selection Boxes */
   .learning-style-box {
     padding: 20px;
-    border: 2px solid #a2b6cb; /* Medium blue for borders */
+    border: 2px solid #a2b6cb;
     border-radius: 12px;
     cursor: pointer;
-    background-color: #eaffff; /* Light blue for background */
+    background-color: #eaffff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     width: 200px;
     text-align: center;
@@ -178,9 +170,9 @@ body {
   }
   
   .learning-style-box.selected {
-    border-color: #01002a; /* Darkest color for selected borders */
-    background-color: #01002a; /* Darkest color for selected background */
-    color: #eaffff; /* Light blue for selected text */
+    border-color: #01002a;
+    background-color: #01002a;
+    color: #eaffff;
   }
   
   .learning-style-box h2 {
