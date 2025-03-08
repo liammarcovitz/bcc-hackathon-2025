@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# **Learning Style App**  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based application that determines a user's learning style (Auditory, Visual, or Game) through a quiz. Based on the learning style, the app generates personalized learning content using OpenAI's GPT, DALL·E, and Text-to-Speech (TTS) APIs.  
 
-## Available Scripts
+## **Features**  
+✅ User login system (email & password)  
+✅ Quiz to determine the user's learning style  
+✅ AI-generated content based on learning style  
+✅ Supports three learning styles:  
+   - **Auditory** → Generates an AI-generated voice message  
+   - **Visual** → Generates an image and text explanation  
+   - **Game** → Plans to integrate an interactive learning game  
+✅ Uses OpenAI APIs for text, images, and audio generation  
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Tech Stack**  
+- **Frontend:** React.js (useState, hooks)  
+- **AI Services:**  
+  - Google Gemini API (for quiz analysis)  
+  - OpenAI GPT-3.5 Turbo (for text generation)  
+  - OpenAI DALL·E (for image generation)  
+  - OpenAI TTS (for voice generation)  
+- **Styling:** Inline CSS  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Setup & Installation**  
 
-### `npm test`
+### **1. Clone the Repository**  
+```sh
+git clone https://github.com/your-username/learning-style-app.git
+cd learning-style-app
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **2. Install Dependencies**  
+```sh
+npm install
+```
 
-### `npm run build`
+### **3. Create a `.env` File**  
+In the root directory, create a `.env` file and add your API keys:  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```env
+REACT_APP_GEMINI_API_KEY=your_gemini_api_key
+REACT_APP_OPEN_AI_API_KEY=your_openai_api_key
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **4. Start the Development Server**  
+```sh
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app will run on `http://localhost:3000/`.  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **Usage**  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Log in** with any email and password (no authentication is implemented yet).  
+2. **Take the quiz** to determine your learning style.  
+3. Based on your learning style:  
+   - **Auditory** → Enter a topic and get an AI-generated voice message.  
+   - **Visual** → Enter a topic and get an AI-generated image + explanation.  
+   - **Game** → (Feature planned for future updates).  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## **Project Structure**  
 
-## Learn More
+```
+/learning-style-app
+│── /src
+│   │── /components
+│   │   ├── QuizPage.js
+│   │   ├── LearningStyleApp.js
+│   │── App.js
+│   │── index.js
+│── .env
+│── package.json
+│── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## **Future Improvements**  
+🚀 Add a backend for user authentication  
+🚀 Improve UI design with Tailwind or Material UI  
+🚀 Enhance the quiz logic for better learning style detection  
+🚀 Implement the "Game" learning mode  
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **License**  
+This project is for educational purposes and is **MIT Licensed**.  
