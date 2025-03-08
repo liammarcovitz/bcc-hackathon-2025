@@ -1,4 +1,6 @@
-# **Learning Style App**  
+## **Learning Newtron**  
+
+### **This project won 2nd place in the Education topic and 1st place in the category of Best Use of AI in BCC Hackathon 7th of March, 2025**
 
 This is a React-based application that determines a user's learning style (Auditory, Visual, or Game) through a quiz. Based on the learning style, the app generates personalized learning content using OpenAI's GPT, DALL·E, and Text-to-Speech (TTS) APIs.  
 
@@ -71,24 +73,14 @@ The app will run on `http://localhost:3000/`.
 ```
 /learning-style-app
 │── /src
-│   │── /components
-│   │   ├── QuizPage.js
-│   │   ├── LearningStyleApp.js
+│   ├── QuizPage.js
+│   ├── LearningStyleApp.js
 │   │── App.js
 │   │── index.js
 │── .env
 │── package.json
 │── README.md
 ```
-
----
-
-## **Future Improvements**  
-🚀 Add a backend for user authentication  
-🚀 Improve UI design with Tailwind or Material UI  
-🚀 Enhance the quiz logic for better learning style detection  
-🚀 Implement the "Game" learning mode  
-
 ---
 
 ## **License**  
